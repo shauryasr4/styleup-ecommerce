@@ -1,0 +1,15 @@
+.item-card {
+  width: 15%;
+  .image-holder {
+    img {
+      width: -webkit-fill-available;
+      height: 400px;
+    }
+  }
+  .footer {
+      font-size: x-large;
+      color: #505050;
+      display: flex;
+      justify-content: space-between;
+  }
+}
