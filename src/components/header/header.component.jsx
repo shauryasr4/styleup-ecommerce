@@ -18,6 +18,9 @@ const Header = props => {
         <Link className="navigation-item" to="/">
           CONTACT
         </Link>
+        <Link className="navigation-item" to="/signin">
+          SIGN IN
+        </Link>
       </div>
     </div>
   );
