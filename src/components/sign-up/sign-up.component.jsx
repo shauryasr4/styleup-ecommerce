@@ -62,10 +62,10 @@ class SignUp extends React.Component {
                 <h2>I don't have an account</h2>
                 <span> Sign Up with your email and password </span>
                 <form onSubmit={this.handleSubmit}>
-                    <Forminput changeHandler={this.changeHandler} label='Display Name' name='displayName' type='text' value={displayName}  />
-                    <Forminput changeHandler={this.changeHandler} label='Email' name='email' type='email' value={email}  />
-                    <Forminput changeHandler={this.changeHandler} label='Password' name='password' type='password' value={password}  />
-                    <Forminput changeHandler={this.changeHandler} label='Confirm Password' name='confirmPassword' type='password' value={confirmPassword}  />
+                    <Forminput changeHandler={this.changeHandler} label='Display Name' name='displayName' type='text' value={displayName} />
+                    <Forminput changeHandler={this.changeHandler} label='Email' name='email' type='email' value={email} />
+                    <Forminput changeHandler={this.changeHandler} label='Password' name='password' type='password' value={password} />
+                    <Forminput changeHandler={this.changeHandler} label='Confirm Password' name='confirmPassword' type='password' value={confirmPassword} />
                     <div className='footer'>
                         <CustomButton type='submit'>
                             Register

@@ -8,7 +8,7 @@ import { auth } from "../../firebase/firebase.utils";
 
 import { connect } from 'react-redux';
 
-const Header = ({currentUser}) => {
+const Header = ({ currentUser }) => {
   return (
     <div className="header">
       <div className="logo-container">
@@ -22,9 +22,9 @@ const Header = ({currentUser}) => {
           CONTACT
         </Link>
         {
-          currentUser?
-          <div className="navigation-item" onClick={()=>{auth.signOut()}}>SIGN OUT</div> :
-          <Link className="navigation-item" to="/signin">SIGN IN</Link>
+          currentUser ?
+            <div className="navigation-item" onClick={() => { auth.signOut() }}>SIGN OUT</div> :
+            <Link className="navigation-item" to="/signin">SIGN IN</Link>
         }
       </div>
     </div>
@@ -32,8 +32,8 @@ const Header = ({currentUser}) => {
 };
 
 const mapStateToProps = state => {
-  const {user} = state;
-  return{
+  const { user } = state;
+  return {
     currentUser: user.currentUser
   }
 }

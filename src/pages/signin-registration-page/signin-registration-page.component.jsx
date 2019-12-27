@@ -14,8 +14,8 @@ const SignInRegistrationPage = () => {
             <div className='sign-in-form-container'>
                 <SignUp />
             </div>
-        </div>  
+        </div>
     );
-} 
+}
 
 export default SignInRegistrationPage;
