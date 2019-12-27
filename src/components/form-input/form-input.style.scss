@@ -1,5 +1,6 @@
 $sub-color: grey;
 $main-color: black;
+$error-color: red;
 
 @mixin shrinkLabel {
   top: -14px;
@@ -32,6 +33,10 @@ $main-color: black;
     &:focus ~ .form-input-label {
       @include shrinkLabel();
     }
+  }
+
+  input:invalid {
+    border-bottom: 1px solid $error-color;
   }
 
   input[type='password'] {

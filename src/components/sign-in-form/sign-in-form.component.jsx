@@ -5,7 +5,7 @@ import './sign-in-form.style.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
-import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 class SignInForm extends React.Component {
     constructor(props) {
@@ -17,14 +17,23 @@ class SignInForm extends React.Component {
     }
 
     changeHandler = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         this.setState({ [name]: value });
     }
 
-    submitHandler = (event) => {
+    submitHandler = async (event) => {
         event.preventDefault();
-
-        this.setState({email: '', password: ''});
+        const { email, password } = this.state;
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+            this.setState({
+                email: '',
+                password: ''
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+        this.setState({ email: '', password: '' });
     }
 
     render() {
@@ -36,15 +45,16 @@ class SignInForm extends React.Component {
                 <form onSubmit={this.submitHandler}>
                     <FormInput label='email' type='text' name='email' value={email} changeHandler={this.changeHandler} required />
                     <FormInput label='password' type='password' name='password' value={password} changeHandler={this.changeHandler} required />
+
+                    <div className='footer-container'>
+                        <CustomButton type='submit' >
+                            Sign In
+                    </CustomButton>
+                        <CustomButton onClick={signInWithGoogle} googleSignInButton >
+                            Sign In With Google
+                    </CustomButton>
+                    </div>
                 </form>
-                <div className='footer-container'>
-                    <CustomButton type='submit' > 
-                        Sign In
-                    </CustomButton>
-                    <CustomButton onClick={signInWithGoogle} googleSignInButton > 
-                        Sign In With Google
-                    </CustomButton>
-                </div>
             </div>
         )
     }
