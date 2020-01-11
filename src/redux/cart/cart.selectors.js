@@ -6,6 +6,10 @@ export const selectCartItems = createSelector([selectCart], function(cart) {
     return cart.cartItems;
 })
 
+export const selectCartVisibility = createSelector([selectCart], function(cart) {
+    return cart.hideCart;
+})
+
 export const selectCartItemsCount = createSelector([selectCartItems], function(cartItems) {
     return cartItems.reduce(function(cartItemsCount, cartItem) {
         return cartItemsCount + cartItem.quantity;
