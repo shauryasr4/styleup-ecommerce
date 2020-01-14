@@ -15,3 +15,9 @@ export const selectCartItemsCount = createSelector([selectCartItems], function(c
         return cartItemsCount + cartItem.quantity;
     }, 0);
 })
+
+export const selectCartItemsTotal = createSelector([selectCartItems], function(cartItems) {
+    return cartItems.reduce(function(cartItemsTotal, cartItem) {
+        return cartItemsTotal + (cartItem.quantity * cartItem.price);
+    }, 0);
+})
