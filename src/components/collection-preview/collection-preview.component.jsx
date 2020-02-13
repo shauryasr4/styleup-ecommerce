@@ -16,7 +16,7 @@ class CollectionPreview extends React.Component {
               return index < 4;
             })
             .map((item) => {
-              return <CollectionItem key ={item.id} item={item} />;
+              return <CollectionItem key={item.id} item={item} />;
             })}
         </div>
       </div>

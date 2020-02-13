@@ -1,0 +1,21 @@
+.collection-page {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    .title {
+        font-size: 38px;
+        margin: 0 auto 30px;
+    }
+
+    .items-container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+
+        & .item-card {
+            flex-basis: 15%;
+            padding: 15px;
+        }
+    }
+}
